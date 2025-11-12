@@ -45,12 +45,6 @@ Robot description, launch files, and configurations
 - ✅ RViz visualization
 - ✅ Support for both simulation and real hardware
 
-## 🔧 My Working System
-
-- Ubuntu 22.04
-- ROS 2 Humble
-- Dobot CR10 robot (tested on real hardware)
-
 ## 📦 Installation
 
 ### 1. Clone the repository
