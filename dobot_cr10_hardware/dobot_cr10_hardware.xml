@@ -1,0 +1,9 @@
+<library path="dobot_cr10_hardware">
+  <class name="dobot_cr10_hardware/DobotCR10HardwareInterface"
+         type="dobot_cr10_hardware::DobotCR10HardwareInterface"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Hardware interface for Dobot CR10 collaborative robot arm
+    </description>
+  </class>
+</library>

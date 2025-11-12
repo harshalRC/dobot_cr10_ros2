@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dobot_cr10">
+
+  <!-- ===== PARAMETERS ===== -->
+  <xacro:arg name="use_fake_hardware" default="false"/>
+  <xacro:arg name="robot_ip" default="192.168.5.1"/>
+  <xacro:arg name="robot_port" default="29999"/>
+  <xacro:arg name="prefix" default=""/>
+
+  <!-- ===== MATERIAL DEFINITIONS ===== -->
+  <material name="dobot_blue">
+    <color rgba="0.79216 0.81961 0.92941 1"/>
+  </material>
+
+  <!-- ===== BASE LINK ===== -->
+  <link name="$(arg prefix)base_link">
+    <inertial>
+      <origin xyz="0.00043171 -0.0017808 0.034092" rpy="0 0 0"/>
+      <mass value="1.7287"/>
+      <inertia ixx="0.0041823" ixy="2.4931E-06" ixz="3.1074E-05"
+               iyy="0.0040497" iyz="-3.8611E-05" izz="0.0065168"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/base_link.STL"/>
+      </geometry>
+      <material name="dobot_blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/base_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ===== JOINT 1 ===== -->
+  <joint name="$(arg prefix)joint_1" type="revolute">
+    <origin xyz="0.0010064 -0.0021532 0.078964" rpy="0.026164 0.01264 0.02652"/>
+    <parent link="$(arg prefix)base_link"/>
+    <child link="$(arg prefix)link_1"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-6.28" upper="6.28" effort="150" velocity="2"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <!-- ===== LINK 1 ===== -->
+  <link name="$(arg prefix)link_1">
+    <inertial>
+      <origin xyz="0.010819 -1.564E-06 0.10034" rpy="0 0 0"/>
+      <mass value="4.1649"/>
+      <inertia ixx="0.018824" ixy="1.0402E-07" ixz="9.6799E-05"
+               iyy="0.020714" iyz="2.2865E-07" izz="0.014575"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-1.STL"/>
+      </geometry>
+      <material name="dobot_blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-1.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ===== JOINT 2 ===== -->
+  <joint name="$(arg prefix)joint_2" type="revolute">
+    <origin xyz="0.102 0 0.0975" rpy="0 0 0"/>
+    <parent link="$(arg prefix)link_1"/>
+    <child link="$(arg prefix)link_2"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.14" upper="3.14" effort="150" velocity="2"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <!-- ===== LINK 2 ===== -->
+  <link name="$(arg prefix)link_2">
+    <inertial>
+      <origin xyz="0.093151 -1.0433E-07 0.2463" rpy="0 0 0"/>
+      <mass value="11.314"/>
+      <inertia ixx="0.29972" ixy="6.9535E-08" ixz="0.0033374"
+               iyy="0.30683" iyz="-1.3133E-08" izz="0.033617"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-2.STL"/>
+      </geometry>
+      <material name="dobot_blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-2.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ===== JOINT 3 ===== -->
+  <joint name="$(arg prefix)joint_3" type="revolute">
+    <origin xyz="0.015 0 0.607" rpy="0 0 0"/>
+    <parent link="$(arg prefix)link_2"/>
+    <child link="$(arg prefix)link_3"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-6.28" upper="6.28" effort="100" velocity="2"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <!-- ===== LINK 3 ===== -->
+  <link name="$(arg prefix)link_3">
+    <inertial>
+      <origin xyz="-0.0547042900306558 4.69055676521025E-07 0.270861245240957" rpy="0 0 0"/>
+      <mass value="4.89191478863776"/>
+      <inertia ixx="0.238369162166941" ixy="7.61885944041775E-08" ixz="0.00257869019852994"
+               iyy="0.239673383068356" iyz="1.89742633549028E-08" izz="0.00715728937113017"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-3.STL"/>
+      </geometry>
+      <material name="dobot_blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-3.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ===== JOINT 4 ===== -->
+  <joint name="$(arg prefix)joint_4" type="revolute">
+    <origin xyz="0.0075 0 0.568" rpy="0 0 0"/>
+    <parent link="$(arg prefix)link_3"/>
+    <child link="$(arg prefix)link_4"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-6.28" upper="6.28" effort="50" velocity="3"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <!-- ===== LINK 4 ===== -->
+  <link name="$(arg prefix)link_4">
+    <inertial>
+      <origin xyz="0.060609253116529 3.28831690179161E-07 -0.00798726712724762" rpy="0 0 0"/>
+      <mass value="1.16884724073703"/>
+      <inertia ixx="0.00273281500514179" ixy="3.24876099751998E-09" ixz="5.4505786609508E-05"
+               iyy="0.00292615337233013" iyz="7.60515741522402E-09" izz="0.00150056730806779"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-4.STL"/>
+      </geometry>
+      <material name="dobot_blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-4.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ===== JOINT 5 ===== -->
+  <joint name="$(arg prefix)joint_5" type="revolute">
+    <origin xyz="0.0665 0 0.068" rpy="0 0 0"/>
+    <parent link="$(arg prefix)link_4"/>
+    <child link="$(arg prefix)link_5"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-6.28" upper="6.28" effort="50" velocity="3"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <!-- ===== LINK 5 ===== -->
+  <link name="$(arg prefix)link_5">
+    <inertial>
+      <origin xyz="-0.0145467666760558 -6.13652700914707E-08 0.0524512917928925" rpy="0 0 0"/>
+      <mass value="1.22302430677084"/>
+      <inertia ixx="0.00149256719455683" ixy="2.62809254507745E-09" ixz="8.41893886453018E-05"
+               iyy="0.00337901308952554" iyz="7.48934876097148E-09" izz="0.00323300506255286"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-5.STL"/>
+      </geometry>
+      <material name="dobot_blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-5.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ===== JOINT 6 ===== -->
+  <joint name="$(arg prefix)joint_6" type="revolute">
+    <origin xyz="0.0665 0 0.057" rpy="0 0 0"/>
+    <parent link="$(arg prefix)link_5"/>
+    <child link="$(arg prefix)link_6"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-6.28" upper="6.28" effort="30" velocity="3"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+  <!-- ===== LINK 6 ===== -->
+  <link name="$(arg prefix)link_6">
+    <inertial>
+      <origin xyz="0.0233267236804897 -6.60182229233081E-08 -0.000136438466677768" rpy="0 0 0"/>
+      <mass value="0.207475731449731"/>
+      <inertia ixx="0.000209920992588732" ixy="-3.57874154906935E-13" ixz="-2.86594531707672E-08"
+               iyy="0.000113179735128728" iyz="-4.70278835778436E-14" izz="0.000113727016310527"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-6.STL"/>
+      </geometry>
+      <material name="dobot_blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://dobot_cr10_description/meshes/Link-6.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ===== TOOL FLANGE ===== -->
+  <link name="$(arg prefix)tool0"/>
+
+  <joint name="$(arg prefix)link_6_tool0" type="fixed">
+    <parent link="$(arg prefix)link_6"/>
+    <child link="$(arg prefix)tool0"/>
+    <origin xyz="0.05 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ===== ROS2_CONTROL ===== -->
+  <ros2_control name="DobotCR10" type="system">
+    <hardware>
+      <xacro:if value="$(arg use_fake_hardware)">
+        <plugin>mock_components/GenericSystem</plugin>
+      </xacro:if>
+      <xacro:unless value="$(arg use_fake_hardware)">
+        <plugin>dobot_cr10_hardware/DobotCR10HardwareInterface</plugin>
+        <param name="robot_ip">$(arg robot_ip)</param>
+        <param name="robot_port">$(arg robot_port)</param>
+      </xacro:unless>
+    </hardware>
+
+    <joint name="joint_1">
+      <command_interface name="position">
+        <param name="min">-6.28</param>
+        <param name="max">6.28</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="joint_2">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="joint_3">
+      <command_interface name="position">
+        <param name="min">-6.28</param>
+        <param name="max">6.28</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="joint_4">
+      <command_interface name="position">
+        <param name="min">-6.28</param>
+        <param name="max">6.28</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="joint_5">
+      <command_interface name="position">
+        <param name="min">-6.28</param>
+        <param name="max">6.28</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+    <joint name="joint_6">
+      <command_interface name="position">
+        <param name="min">-6.28</param>
+        <param name="max">6.28</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+
+  </ros2_control>
+
+</robot>
