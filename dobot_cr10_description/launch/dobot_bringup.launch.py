@@ -34,7 +34,7 @@ def generate_launch_description():
     # Robot description with parameters
     robot_description_content = Command(
         [
-            PathJoinSubstitution([FindExecutable(name='xacro')]),
+            FindExecutable(name='xacro'),
             ' ',
             PathJoinSubstitution(
                 [FindPackageShare('dobot_cr10_description'), 'urdf', 'dobot_cr10.urdf.xacro']

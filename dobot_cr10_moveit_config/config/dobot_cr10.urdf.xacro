@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dobot_cr10">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import dobot_cr10 urdf file -->
+    <xacro:include filename="$(find dobot_cr10_description)/urdf/dobot_cr10.urdf.xacro" />
+
+    <!-- Import control_xacro -->
+    <!-- <xacro:include filename="dobot_cr10.ros2_control.xacro" /> -->
+
+    <!-- Commented out - using ros2_control from main URDF instead -->
+    <!-- <xacro:dobot_cr10_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/> -->
+
+</robot>
+
