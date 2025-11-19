@@ -149,7 +149,7 @@ ros2 launch dobot_cr10_description dobot_bringup.launch.py use_fake_hardware:=fa
 
 ## Hardware Interface Details
 
-Implementation: dobot_cr10_hardware.cpp
+**Implementation:** [`dobot_cr10_hardware.cpp`](./dobot_cr10_hardware/src/dobot_cr10_hardware.cpp)
 
 ### TCP/IP Command Protocol
 
