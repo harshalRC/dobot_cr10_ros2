@@ -13,10 +13,10 @@ Complete ROS 2 integration for Dobot CR10 collaborative robot with custom hardwa
 Custom hardware interface implementation
 
 - **[`include/dobot_cr10_hardware/`](./dobot_cr10_hardware/include/dobot_cr10_hardware)**
-  - [`dobot_cr10_hardware.hpp`](./dobot_cr10_hardware/include/dobot_cr10_hardware/dobot_cr10_hardware.hpp) - Hardware interface header
+  - [`dobot_cr10_hardware_interface.hpp`](./dobot_cr10_hardware/include/dobot_cr10_hardware/dobot_cr10_hardware_interface.hpp) - Hardware interface header
   
 - **[`src/`](./dobot_cr10_hardware/src)**
-  - [`dobot_cr10_hardware.cpp`](./dobot_cr10_hardware/src/dobot_cr10_hardware.cpp) - TCP/IP communication implementation
+  - [`dobot_cr10_hardware_interface.cpp`](./dobot_cr10_hardware/src/dobot_cr10_hardware_interface.cpp) - TCP/IP communication implementation
 
 - [`dobot_cr10_hardware.xml`](./dobot_cr10_hardware/dobot_cr10_hardware.xml) - Plugin description
 - [`CMakeLists.txt`](./dobot_cr10_hardware/CMakeLists.txt) - Build configuration
@@ -149,7 +149,7 @@ ros2 launch dobot_cr10_description dobot_bringup.launch.py use_fake_hardware:=fa
 
 ## Hardware Interface Details
 
-**Implementation:** [`dobot_cr10_hardware.cpp`](./dobot_cr10_hardware/src/dobot_cr10_hardware.cpp)
+**Implementation:** [`dobot_cr10_hardware_interface.cpp`](./dobot_cr10_hardware/src/dobot_cr10_hardware_interface.cpp)
 
 ### TCP/IP Command Protocol
 
